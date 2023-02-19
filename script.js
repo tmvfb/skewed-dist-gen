@@ -33,7 +33,7 @@ function randomIntegerSkew(min, max, additionalPercent = skewPercentage) {
     let d = ((PN - P1) / elementsCount);
     let n = (Math.random() * (max - min + 1) + min);
     let result = Math.floor(quantile(P1, n, d));
-        return result;
+    return result;
 }
 
 function randConstantCallback() {
@@ -104,6 +104,30 @@ var chart = new Chart(document.getElementById("line-chart"), {
         title: {
             display: true,
             text: "Constant and skewed random integer distributions in range from 0 to 1000"
+        },
+        scales: {
+            xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'random integer'
+                    }
+                }
+            ],
+            yAxes: [{
+                    display: true,
+                    ticks: {
+                        suggestedMin: 8000,
+                        steps: 8,
+                        stepValue: 500,
+                        suggestedMax: 12000,
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'generation frequency'
+                    }
+                }
+            ]
         }
     }
 });
